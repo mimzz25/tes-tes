@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Identitas — Yemima Melanie Surya</title>
+  <style>
+    :root{
+      --bg:#fff0f6; --card:#ffffff; --muted:#6b7280; --accent:#ec4899;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .card{width:794px;height:1123px; /* ukuran kertas A4 potret */
+      background:var(--card);border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.08);
+      padding:40px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+    .photo{
+      width:150px;height:200px;border:3px solid var(--accent);border-radius:8px;
+      background:#fce7f3 url('foto.jpg') center/cover no-repeat;margin-bottom:20px
+    }
+    h1{font-size:24px;color:var(--accent);margin-bottom:8px}
+    p.role{color:var(--muted);font-size:14px;margin-bottom:20px}
+    dl{width:100%;max-width:500px;display:grid;grid-template-columns:150px 1fr;row-gap:16px;column-gap:20px}
+    dt{font-weight:600;color:var(--muted);font-size:14px}
+    dd{margin:0;font-size:16px}
+    footer{position:absolute;bottom:20px;right:30px;color:var(--muted);font-size:12px}
+
+    /* Sakura animation */
+    .sakura{position:fixed;top:-10%;background:url('https://cdn-icons-png.flaticon.com/512/4150/4150897.png') no-repeat center/contain;
+      width:25px;height:25px;animation:fall linear infinite;z-index:0;opacity:0.8}
+    @keyframes fall{
+      0%{transform:translateY(0) rotate(0deg);}
+      100%{transform:translateY(110vh) rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="photo"></div>
+    <h1>Yemima Melanie Surya</h1>
+    <p class="role">Mahasiswa — Universitas Hasanuddin</p>
+
+    <dl>
+      <dt>Nama</dt>
+      <dd>Yemima Melanie Surya</dd>
+
+      <dt>NIM</dt>
+      <dd>H021231042</dd>
+
+      <dt>Universitas</dt>
+      <dd>Universitas Hasanuddin</dd>
+
+      <dt>Alamat</dt>
+      <dd>Biringkanaya, Daaya, Makassar</dd>
+
+      <dt>No. HP</dt>
+      <dd>081234567891</dd>
+    </dl>
+
+    <footer>
+      Dibuat untuk GitHub • <script>document.write(new Date().toLocaleDateString('id-ID'))</script>
+    </footer>
+  </div>
+
+  <script>
+    // buat kelopak bunga sakura jatuh
+    function createSakura(){
+      const sakura=document.createElement('div');
+      sakura.classList.add('sakura');
+      sakura.style.left=Math.random()*100+'vw';
+      sakura.style.animationDuration= (5+Math.random()*5)+'s';
+      document.body.appendChild(sakura);
+      setTimeout(()=>sakura.remove(),10000);
+    }
+    setInterval(createSakura,500);
+  </script>
+</body>
+</html>
